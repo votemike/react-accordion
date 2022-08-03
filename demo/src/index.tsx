@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ReactAccordion from '../src';
+import ReactAccordion from 'react-accordion';
 
 const data = [
   {
@@ -24,6 +24,11 @@ const DemoPage = () => {
 
 const main = () => {
   const appNode = document.querySelector('app');
+  if (!appNode) {
+    console.error('Could not find the <app> element on the DOM');
+    return;
+  }
+
   const root = ReactDOM.createRoot(appNode);
   root.render(<DemoPage />);
 }

@@ -3,8 +3,8 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "dist/types",
-    "module": "esnext",
-    "outDir": "dist/esm",
-    "target": "esnext"
+    "module": "commonjs",
+    "outDir": "dist/cjs",
+    "target": "es2015"
   }
 }
