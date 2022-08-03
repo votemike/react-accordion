@@ -7,5 +7,5 @@ interface ReactAccordionProps {
         open?: boolean;
     }[];
 }
-declare const ReactAccordion: (props: ReactAccordionProps) => JSX.Element;
+declare function ReactAccordion(props: ReactAccordionProps): JSX.Element;
 export default ReactAccordion;
