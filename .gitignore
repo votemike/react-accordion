@@ -1,6 +1,5 @@
 node_modules
 demo/dist/*.js
 demo/dist/*.map.js
-dist/*.js
-dist/*.js.map
+dist/*
 .DS_Store
