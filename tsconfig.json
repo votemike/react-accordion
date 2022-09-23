@@ -1,10 +1,30 @@
 {
-  "extends": "./tsconfig-base.json",
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "dist/types",
-    "module": "esnext",
-    "outDir": "dist/esm",
-    "target": "esnext"
-  }
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "ESNext",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "nodenext",
+    "rootDir": "src",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ],
+  "types": [
+    "typePatches"
+  ]
 }

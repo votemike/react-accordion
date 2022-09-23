@@ -9,9 +9,9 @@ const data = [
     child: <div>Privacy is <a href="https://apple.com/privacy">very</a> important to Apple.</div>
   },
   {
-    name: 'A Picture',
-    heading: 'A Picture',
-    child: <img src="./images/applesOrange.jpeg" />,
+    name: 'A Table',
+    heading: 'A Table',
+    child: <table><tr><td>Hello</td></tr></table>,
     open: true
   }
 ];
