@@ -6,5 +6,8 @@
   ],
   "parserOptions": {
     "project": "./tsconfig.json"
+  },
+  "rules": {
+    "import/no-import-module-exports": "off"
   }
 }
