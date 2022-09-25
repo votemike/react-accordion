@@ -29,15 +29,10 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@types/jest": "^28.1.6",
     "@typescript-eslint/parser": "^5.38.0",
     "esbuild": "^0.14.53",
-    "eslint": "^8.21.0",
     "eslint-config-airbnb": "^19.0.4",
-    "servatron": "^2.3.1",
-    "ts-jest": "^28.0.7",
-    "typescript": "^4.7.4"
+    "eslint": "^8.21.0",
+    "servatron": "^2.3.1"
   }
 }
