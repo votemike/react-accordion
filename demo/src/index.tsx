@@ -11,7 +11,7 @@ const data = [
   {
     name: 'A Table',
     heading: 'A Table',
-    child: <table><tr><td>Hello</td></tr></table>,
+    child: <table><tbody><tr><td>Hello</td></tr></tbody></table>,
     open: true
   }
 ];

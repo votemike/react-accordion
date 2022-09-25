@@ -1,4 +1,3 @@
 node_modules
-demo/dist/*.js
-demo/dist/*.map.js
+demo/dist
 dist

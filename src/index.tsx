@@ -9,7 +9,7 @@ interface ReactAccordionProps {
   }[]
 }
 
-function ReactAccordion(props: ReactAccordionProps) {
+export function ReactAccordion(props: ReactAccordionProps) {
   const { items } = props;
 
   return (
@@ -27,3 +27,4 @@ function ReactAccordion(props: ReactAccordionProps) {
 }
 
 export default ReactAccordion;
+module.exports = ReactAccordion;

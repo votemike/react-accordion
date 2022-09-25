@@ -4,7 +4,7 @@
   "description": "A really lightweight, symantic, super simple accordion for React",
   "type": "commonjs",
   "main": "./dist/cjs/index.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
