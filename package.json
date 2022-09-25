@@ -13,6 +13,7 @@
     }
   },
   "scripts": {
+    "develop": "tsc -w --project tsconfig-cjs.json & tsc -w --project tsconfig.json",
     "build": "tsc --project tsconfig-cjs.json & tsc --project tsconfig.json",
     "lint": "eslint src/*.tsx",
     "test": "jest"
