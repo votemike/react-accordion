@@ -1,10 +1,13 @@
 {
-  "extends": "airbnb",
-  "plugins": [
-    "react-hooks"
+  "root": true,
+  "extends": [
+    "airbnb",
+    "airbnb-typescript"
   ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "rules": {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "import/no-import-module-exports": "off"
   }
 }

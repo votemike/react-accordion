@@ -1,4 +1,4 @@
-import React, {ReactNode, useState} from 'react';
+import React, { ReactNode, useState } from 'react';
 
 interface ReactAccordionProps {
   items: {
@@ -10,40 +10,44 @@ interface ReactAccordionProps {
   onClick?: (index: number) => void
 }
 
-const ReactAccordion = (props: ReactAccordionProps) => {
+export function ReactAccordion(props: ReactAccordionProps) {
+  const { items } = props;
+
+  const handleClick = (index) => () => props.onClick && props.onClick(index);
+
   return (
     <ul>
-      {props.items.map((item, index) => {
-        return (
-          <li key={item.name}>
-            <details aria-label={item.name} open={item.open} onClick={() => props.onClick && props.onClick(index)}>
-              <summary>{item.heading}</summary>
-              {item.child}
-            </details>
-          </li>
-        );
-      })}
+      {items.map((item, index) => (
+        <li key={item.name}>
+          <details aria-label={item.name} open={item.open} onClick={handleClick(index)}>
+            <summary>{item.heading}</summary>
+            {item.child}
+          </details>
+        </li>
+      ))}
     </ul>
   );
 }
 
-export const SingleItemOpenAccordion = (props) => {
-  const {items} = props;
+export function SingleItemOpenAccordion(props) {
+  const { items } = props;
   const [openItemIndex, setOpenItemIndex] = useState(null);
 
-  const revisedItems = items.map((item, index) => {
-    return {
-      ...item,
-      open: index === openItemIndex
-    };
-  });
-  console.log(revisedItems);
+  const handleClick = (index) => {
+    console.log(index);
+    setOpenItemIndex(openItemIndex === index ? null : index);
+  };
+
+  const revisedItems = items.map((item, index) => ({
+    ...item,
+    open: index === openItemIndex,
+  }));
 
   return (
-    <ReactAccordion items={revisedItems} onClick={(index) => {console.log(index);setOpenItemIndex(openItemIndex === index ? null : index)}}/>
+    <ReactAccordion items={revisedItems} onClick={handleClick} />
   );
 }
-// What about if a clicked item is open?
-// What if a user is searching the page and the accordion opens due to hidden=until-found or something
 
 export default ReactAccordion;
+module.exports = ReactAccordion;
+module.exports.SingleItemOpenAccordion = SingleItemOpenAccordion;
