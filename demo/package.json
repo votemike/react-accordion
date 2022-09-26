@@ -1,7 +1,7 @@
 {
   "name": "react-accordion-demo",
   "version": "1.0.0",
-  "description": "A really lightweight, symantic, super simple accordion for React",
+  "description": "A demo of using the react-accordion component",
   "type": "module",
   "scripts": {
     "develop": "servatron -d dist & esbuild --watch --bundle src/index.tsx --outfile=dist/index.min.js --loader:.js=jsx",
