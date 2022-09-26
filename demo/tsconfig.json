@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "baseUrl": "src",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "lib": ["esnext", "dom"],
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "strict": true,
+    "traceResolution": false,
+    "types": ["node", "jest"],
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "module": "commonjs",
+    "outDir": "dist",
+    "target": "es2015"
+  },
+  "include": [
+    "./src/*"
+  ],
+  "exclude": [
+    "*/__tests__/*"
+  ]
+}
