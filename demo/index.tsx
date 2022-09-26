@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ReactAccordion from '../src';
+import {SingleItemOpenAccordion} from '../src';
 
 const data = [
   {
     name: 'Privacy',
     heading: <span>Privacy</span>,
+    child: <div>Privacy is <a href="https://apple.com/privacy">very</a> important to Apple.</div>
+  },
+  {
+    name: 'Another',
+    heading: <span>Another</span>,
     child: <div>Privacy is <a href="https://apple.com/privacy">very</a> important to Apple.</div>
   },
   {
@@ -18,7 +23,7 @@ const data = [
 
 const DemoPage = () => {
   return (
-    <ReactAccordion items={data}/>
+    <SingleItemOpenAccordion items={data}/>
   )
 }
 
