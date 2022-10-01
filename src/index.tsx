@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, {ReactNode, SyntheticEvent, useState} from 'react';
 
 interface ReactAccordionProps {
   items: {
@@ -7,20 +7,18 @@ interface ReactAccordionProps {
     child: ReactNode,
     open?: boolean,
   }[]
-  onClick?: (index: number) => void
+  onClick?: (event: SyntheticEvent, index: number) => void
 }
 
 export function ReactAccordion(props: ReactAccordionProps) {
   const { items } = props;
 
-  const handleClick = (index) => () => props.onClick && props.onClick(index);
-
   return (
     <ul>
       {items.map((item, index) => (
         <li key={item.name}>
-          <details aria-label={item.name} open={item.open} onClick={handleClick(index)}>
-            <summary>{item.heading}</summary>
+          <details aria-label={item.name} open={item.open}>
+            <summary onClick={(event: SyntheticEvent) => {props.onClick && props.onClick(event, index)}}>{item.heading}</summary>
             {item.child}
           </details>
         </li>
@@ -29,12 +27,12 @@ export function ReactAccordion(props: ReactAccordionProps) {
   );
 }
 
-export function SingleItemOpenAccordion(props) {
+export function SingleItemOpenAccordion(props: ReactAccordionProps) {
   const { items } = props;
-  const [openItemIndex, setOpenItemIndex] = useState(null);
+  const [openItemIndex, setOpenItemIndex] = useState<number | null>(null);
 
-  const handleClick = (index) => {
-    console.log(index);
+  const handleClick = (event: SyntheticEvent, index:number) => {
+    event.preventDefault();
     setOpenItemIndex(openItemIndex === index ? null : index);
   };
 
