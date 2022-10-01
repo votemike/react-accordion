@@ -1,24 +1,27 @@
-import React, {ReactNode, SyntheticEvent, useState} from 'react';
+import React, { ReactNode, SyntheticEvent, useState } from 'react';
+
+interface Item {
+  name: string,
+  heading: ReactNode,
+  child: ReactNode,
+  open?: boolean,
+}
 
 interface ReactAccordionProps {
-  items: {
-    name: string,
-    heading: ReactNode,
-    child: ReactNode,
-    open?: boolean,
-  }[]
+  items: Item[]
+  // eslint-disable-next-line react/require-default-props
   onClick?: (event: SyntheticEvent, index: number) => void
 }
 
 export function ReactAccordion(props: ReactAccordionProps) {
-  const { items } = props;
+  const { items, onClick } = props;
 
   return (
     <ul>
       {items.map((item, index) => (
         <li key={item.name}>
           <details aria-label={item.name} open={item.open}>
-            <summary onClick={(event: SyntheticEvent) => {props.onClick && props.onClick(event, index)}}>{item.heading}</summary>
+            <summary onClick={(event: SyntheticEvent) => { typeof onClick === 'function' && onClick(event, index); }}>{item.heading}</summary>
             {item.child}
           </details>
         </li>
@@ -27,7 +30,7 @@ export function ReactAccordion(props: ReactAccordionProps) {
   );
 }
 
-export function SingleItemOpenAccordion(props: ReactAccordionProps) {
+export function SingleItemOpenAccordion(props: { items: Item[] }) {
   const { items } = props;
   const [openItemIndex, setOpenItemIndex] = useState<number | null>(null);
 
