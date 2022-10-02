@@ -13,6 +13,11 @@ const data = [
     heading: 'A Table',
     child: <table><tbody><tr><td>Hello</td></tr></tbody></table>,
     open: true
+  },
+  {
+    name: 'A Third Option',
+    heading: 'A Third Option',
+    child: <span>Just a third option</span>,
   }
 ];
 
