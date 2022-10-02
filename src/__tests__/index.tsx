@@ -18,7 +18,7 @@ const data = [
 
 test('a two item accordion renders two summaries', () => {
   const { queryAllByRole } = render(<ReactAccordion items={data} />);
-  
+
   const summaries = queryAllByRole('group')
 
   expect(summaries.length).toBe(2);
@@ -28,7 +28,7 @@ test('a two item accordion renders two summaries', () => {
 
 test('an accordion item details has an aria-name', () => {
   const { queryAllByRole } = render(<ReactAccordion items={data} />);
-  
+
   const summaries = queryAllByRole('group')
 
   expect(summaries[0]).toHaveAttribute('aria-label', 'Privacy');
@@ -36,10 +36,17 @@ test('an accordion item details has an aria-name', () => {
 });
 
 test('the open prop is passed to the item', () => {
-  const { queryAllByRole } = render(<ReactAccordion items={data} />);
-  
+  const testData = [
+    data[0],
+    {
+      ...data[1],
+      open: true
+    }
+  ];
+  const { queryAllByRole } = render(<ReactAccordion items={testData} />);
+
   const summaries = queryAllByRole('group')
 
-  expect(summaries[0]).toHaveAttribute('aria-label', 'Privacy');
-  expect(summaries[1]).toHaveAttribute('aria-label', 'A Picture');
+  expect(summaries[0]).not.toHaveAttribute('open');
+  expect(summaries[1]).toHaveAttribute('open');
 });
