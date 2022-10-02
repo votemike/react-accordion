@@ -1,7 +1,7 @@
-import { render } from '@testing-library/react';
+import {fireEvent, render} from '@testing-library/react';
 import '@testing-library/jest-dom'
 
-import ReactAccordion from '../index';
+import ReactAccordion, {SingleItemOpenAccordion} from '../index';
 
 const data = [
   {
@@ -18,7 +18,7 @@ const data = [
 
 test('a two item accordion renders two summaries', () => {
   const { queryAllByRole } = render(<ReactAccordion items={data} />);
-  
+
   const summaries = queryAllByRole('group')
 
   expect(summaries.length).toBe(2);
@@ -28,7 +28,7 @@ test('a two item accordion renders two summaries', () => {
 
 test('an accordion item details has an aria-name', () => {
   const { queryAllByRole } = render(<ReactAccordion items={data} />);
-  
+
   const summaries = queryAllByRole('group')
 
   expect(summaries[0]).toHaveAttribute('aria-label', 'Privacy');
@@ -37,9 +37,28 @@ test('an accordion item details has an aria-name', () => {
 
 test('the open prop is passed to the item', () => {
   const { queryAllByRole } = render(<ReactAccordion items={data} />);
-  
+
   const summaries = queryAllByRole('group')
 
   expect(summaries[0]).toHaveAttribute('aria-label', 'Privacy');
   expect(summaries[1]).toHaveAttribute('aria-label', 'A Picture');
+});
+
+test('one accordion item opens at a time', async () => {
+  const {findByText, queryAllByRole} = render(<SingleItemOpenAccordion items={data}/>);
+
+  let summaries = queryAllByRole('group')
+
+  expect(summaries[0]).not.toHaveAttribute('open');
+  expect(summaries[1]).not.toHaveAttribute('open');
+
+  fireEvent.click(await findByText('Privacy'));
+
+  expect(summaries[0]).toHaveAttribute('open');
+  expect(summaries[1]).not.toHaveAttribute('open');
+
+  fireEvent.click(await findByText('A Picture'));
+
+  expect(summaries[0]).not.toHaveAttribute('open');
+  expect(summaries[1]).toHaveAttribute('open');
 });

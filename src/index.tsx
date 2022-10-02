@@ -21,7 +21,7 @@ export function ReactAccordion(props: ReactAccordionProps) {
       {items.map((item, index) => (
         <li key={item.name}>
           <details aria-label={item.name} open={item.open}>
-            <summary onClick={(event: SyntheticEvent) => { typeof onClick === 'function' && onClick(event, index); }}>{item.heading}</summary>
+            <summary onClick={(event: SyntheticEvent) => typeof onClick === 'function' && onClick(event, index)}>{item.heading}</summary>
             {item.child}
           </details>
         </li>
