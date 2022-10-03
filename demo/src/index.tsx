@@ -24,7 +24,10 @@ const data = [
 const DemoPage = () => {
   return (
     <>
+      <h1>ReactAccordion Demo</h1>
+      <h2>Basic Accordion</h2>
       <ReactAccordion items={data} />
+      <h2>Accordion with zero or one expanded items at a time</h2>
       <SingleItemOpenAccordion items={data} />
     </>
   )
