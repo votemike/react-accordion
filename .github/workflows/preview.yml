@@ -19,11 +19,6 @@ jobs:
           npm install
           npm run build
 
-      - name: Run Tests 🧪
-        run: |
-          cd demo
-          npm run test
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
