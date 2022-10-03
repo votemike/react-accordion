@@ -32,7 +32,13 @@ export function ReactAccordion(props: ReactAccordionProps) {
 
 export function SingleItemOpenAccordion(props: { items: Item[] }) {
   const { items } = props;
-  const [openItemIndex, setOpenItemIndex] = useState<number | null>(null);
+
+  let initialOpenItem = null;
+  const reversedOpenItemIndex = items.slice().reverse().findIndex((item) => item.open);
+  if (reversedOpenItemIndex !== -1) {
+    initialOpenItem = items.length - reversedOpenItemIndex - 1;
+  }
+  const [openItemIndex, setOpenItemIndex] = useState<number | null>(initialOpenItem);
 
   const handleClick = (event: SyntheticEvent, index:number) => {
     event.preventDefault();
