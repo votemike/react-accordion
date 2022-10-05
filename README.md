@@ -12,3 +12,4 @@ A really lightweight, symantic, super simple accordion for React
 - [x] GitHub Pages Demo
 - [ ] Contributing/Security documents
 - [ ] Deploy to NPM
+- [ ] Cleanup old preview versions once they are superseded or merged
