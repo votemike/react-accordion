@@ -24,7 +24,6 @@ jobs:
         with:
           branch: gh-pages
           folder: demo/dist
-          clean: false
           target-folder: ${{ github.sha }}
 
       - name: Comment on Pull Request
