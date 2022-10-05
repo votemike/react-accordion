@@ -1,7 +1,7 @@
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom'
 
-import ReactAccordion from '../index';
+import ReactAccordion, {SingleItemOpenAccordion} from '../index';
 
 const data = [
   {
@@ -46,6 +46,25 @@ test('the open prop is passed to the item', () => {
   const { queryAllByRole } = render(<ReactAccordion items={testData} />);
 
   const summaries = queryAllByRole('group')
+
+  expect(summaries[0]).not.toHaveAttribute('open');
+  expect(summaries[1]).toHaveAttribute('open');
+});
+
+test('one accordion item opens at a time', async () => {
+  const {findByText, queryAllByRole} = render(<SingleItemOpenAccordion items={data}/>);
+
+  let summaries = queryAllByRole('group')
+
+  expect(summaries[0]).not.toHaveAttribute('open');
+  expect(summaries[1]).not.toHaveAttribute('open');
+
+  fireEvent.click(await findByText('Privacy'));
+
+  expect(summaries[0]).toHaveAttribute('open');
+  expect(summaries[1]).not.toHaveAttribute('open');
+
+  fireEvent.click(await findByText('A Picture'));
 
   expect(summaries[0]).not.toHaveAttribute('open');
   expect(summaries[1]).toHaveAttribute('open');

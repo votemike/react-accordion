@@ -4,7 +4,7 @@
   "description": "A demo of using the react-accordion component",
   "type": "module",
   "scripts": {
-    "develop": "servatron -d dist & esbuild --watch --bundle src/index.tsx --outfile=dist/index.min.js --loader:.js=jsx",
+    "develop": "servatron -d dist & esbuild --sourcemap=inline --watch --bundle src/index.tsx --outfile=dist/index.min.js --loader:.js=jsx",
     "build": "esbuild --bundle src/index.tsx --outfile=dist/index.min.js --loader:.js=jsx"
   },
   "repository": {
@@ -24,9 +24,9 @@
   },
   "homepage": "https://github.com/votemike/react-accordion#readme",
   "dependencies": {
-    "react": "^18.2.0",
+    "react": "../node_modules/react",
     "react-accordion": "../",
-    "react-dom": "^18.2.0"
+    "react-dom": "../node_modules/react-dom"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^5.38.0",

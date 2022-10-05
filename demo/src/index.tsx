@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ReactAccordion from 'react-accordion';
+import ReactAccordion, { SingleItemOpenAccordion } from 'react-accordion';
 
 const data = [
   {
@@ -13,12 +13,23 @@ const data = [
     heading: 'A Table',
     child: <table><tbody><tr><td>Hello</td></tr></tbody></table>,
     open: true
+  },
+  {
+    name: 'A Third Option',
+    heading: 'A Third Option',
+    child: <span>Just a third option</span>,
   }
 ];
 
 const DemoPage = () => {
   return (
-    <ReactAccordion items={data}/>
+    <>
+      <h1>ReactAccordion Demo</h1>
+      <h2>Basic Accordion</h2>
+      <ReactAccordion items={data} />
+      <h2>Accordion with zero or one expanded items at a time</h2>
+      <SingleItemOpenAccordion items={data} />
+    </>
   )
 }
 
