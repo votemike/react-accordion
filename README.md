@@ -9,5 +9,6 @@ A really lightweight, symantic, super simple accordion for React
 - [x] Write test for passing open prop
 - [ ] Support childless item
 - [ ] CI/CD
-- [ ] GitHub Pages Demo
+- [x] GitHub Pages Demo
 - [ ] Contributing/Security documents
+- [ ] Deploy to NPM
