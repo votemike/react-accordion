@@ -7,7 +7,7 @@ A really lightweight, symantic, super simple accordion for React
 - [x] Multiple/Single expanded option
 - [ ] Default theme
 - [x] Write test for passing open prop
-- [ ] Support childless item
+- [x] Support childless item
 - [ ] CI/CD
 - [x] GitHub Pages Demo
 - [ ] Contributing/Security documents

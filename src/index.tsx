@@ -3,7 +3,7 @@ import React, { ReactNode, SyntheticEvent, useState } from 'react';
 interface Item {
   name: string,
   heading: ReactNode,
-  child: ReactNode,
+  child?: ReactNode,
   open?: boolean,
 }
 
@@ -20,10 +20,17 @@ export function ReactAccordion(props: ReactAccordionProps) {
     <ul>
       {items.map((item, index) => (
         <li key={item.name}>
-          <details aria-label={item.name} open={item.open}>
-            <summary onClick={(event: SyntheticEvent) => typeof onClick === 'function' && onClick(event, index)}>{item.heading}</summary>
-            {item.child}
-          </details>
+          {item.child
+            ? (
+              <details aria-label={item.name} open={item.open}>
+                <summary
+                  onClick={(event: SyntheticEvent) => typeof onClick === 'function' && onClick(event, index)}
+                >
+                  {item.heading}
+                </summary>
+                {item.child}
+              </details>
+            ) : (<summary>{item.heading}</summary>)}
         </li>
       ))}
     </ul>
@@ -40,7 +47,7 @@ export function SingleItemOpenAccordion(props: { items: Item[] }) {
   }
   const [openItemIndex, setOpenItemIndex] = useState<number | null>(initialOpenItem);
 
-  const handleClick = (event: SyntheticEvent, index:number) => {
+  const handleClick = (event: SyntheticEvent, index: number) => {
     event.preventDefault();
     setOpenItemIndex(openItemIndex === index ? null : index);
   };
