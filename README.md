@@ -10,6 +10,6 @@ A really lightweight, symantic, super simple accordion for React
 - [ ] Support childless item
 - [ ] CI/CD
 - [x] GitHub Pages Demo
-- [ ] Contributing/Security documents
+- [x] Contributing/Security documents
 - [ ] Deploy to NPM
 - [ ] Cleanup old preview versions once they are superseded or merged
