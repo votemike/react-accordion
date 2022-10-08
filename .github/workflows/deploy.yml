@@ -26,4 +26,4 @@ jobs:
         with:
           branch: gh-pages
           folder: demo/dist
-          clean-exclude: pull-requests/*
+          clean-exclude: commits/*

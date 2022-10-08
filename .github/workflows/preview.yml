@@ -24,7 +24,7 @@ jobs:
         with:
           branch: gh-pages
           folder: demo/dist
-          target-folder: pull-requests/${{ github.sha }}
+          target-folder: commits/${{ github.sha }}
 
       - name: Comment on Pull Request
         uses: actions/github-script@v5
@@ -38,6 +38,6 @@ jobs:
               repo: context.repo.repo,
               body: [
                 '👋 Preview deployed to:',
-                'https://votemike.github.io/react-accordion/pull-requests/' + subfolder
+                'https://votemike.github.io/react-accordion/commits/' + subfolder
               ].join('\n')
             })
