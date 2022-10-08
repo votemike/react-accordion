@@ -4,8 +4,8 @@
   "description": "A demo of using the react-accordion component",
   "type": "module",
   "scripts": {
-    "develop": "servatron -d dist & esbuild --sourcemap=inline --watch --bundle src/index.tsx --outfile=dist/index.min.js --loader:.js=jsx",
-    "build": "esbuild --bundle src/index.tsx --outfile=dist/index.min.js --loader:.js=jsx"
+    "develop": "servatron -d dist & node build.js --watch",
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -30,9 +30,11 @@
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^5.38.0",
+    "chokidar": "^3.5.3",
     "esbuild": "^0.15.9",
-    "eslint-config-airbnb": "^19.0.4",
     "eslint": "^8.24.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "glob": "^8.0.3",
     "servatron": "^2.3.2"
   }
 }
