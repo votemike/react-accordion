@@ -24,7 +24,7 @@ jobs:
         with:
           branch: gh-pages
           folder: demo/dist
-          target-folder: ${{ github.sha }}
+          target-folder: pull-requests/${{ github.sha }}
 
       - name: Comment on Pull Request
         uses: actions/github-script@v5
