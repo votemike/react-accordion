@@ -38,6 +38,6 @@ jobs:
               repo: context.repo.repo,
               body: [
                 '👋 Preview deployed to:',
-                'https://votemike.github.io/react-accordion/' + subfolder
+                'https://votemike.github.io/react-accordion/pull-requests/' + subfolder
               ].join('\n')
             })
