@@ -15,10 +15,7 @@ esbuild.build({
   bundle: true,
   outfile: './dist/index.css',
   sourcemap: 'inline',
-  watch: isWatching,
-  loader: {
-    '.tsx': 'jsx'
-  }
+  watch: isWatching
 });
 
 // Build TypeScript
