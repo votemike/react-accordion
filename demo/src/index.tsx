@@ -18,6 +18,10 @@ const data = [
     name: 'A Third Option',
     heading: 'A Third Option',
     child: <span>Just a third option</span>,
+  },
+  {
+    name: 'No child',
+    heading: 'No child',
   }
 ];
 
