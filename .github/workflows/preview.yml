@@ -24,20 +24,13 @@ jobs:
         with:
           branch: gh-pages
           folder: demo/dist
-          target-folder: commits/${{ github.sha }}
+          target-folder: pull-requests/${{ github.event.pull_request.number }}
 
       - name: Comment on Pull Request
-        uses: actions/github-script@v5
+        uses: marocchino/sticky-pull-request-comment@v2
+        env:
+          PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const subfolder = process.env.GITHUB_SHA;
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: [
-                '👋 Preview deployed to:',
-                'https://votemike.github.io/react-accordion/commits/' + subfolder
-              ].join('\n')
-            })
+          message: |
+            👋 Preview deployed to:
+            https://votemike.github.io/react-accordion/pull-requests/${{ github.event.pull_request.number }}
