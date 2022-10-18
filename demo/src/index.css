@@ -19,6 +19,7 @@ summary {
   border-style: solid;
   border-width: 1px 1px 0 1px;
   color: var(--foreground-colour);
+  cursor: pointer;
 }
 
 li:first-child details > :first-child {
@@ -35,7 +36,6 @@ li:last-child summary {
 details > :not(:first-child) {
   display: block;
   padding: 10px;
-  cursor: pointer;
   border-color: var(--foreground-colour);
   border-style: solid;
   border-width: 1px 1px 0 1px;
