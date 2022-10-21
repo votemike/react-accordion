@@ -27,7 +27,8 @@ li:first-child details > :first-child {
   border-top-right-radius: 5px;
 }
 
-li:last-child summary {
+li:last-child :not(details[open]) summary,
+li:last-child details[open] > :not(:first-child) {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-width: 1px;
