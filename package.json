@@ -28,7 +28,17 @@
     "react",
     "ui"
   ],
-  "author": "",
+  "contributors": [
+    {
+      "name": "Michael Gwynne",
+      "url": "https://votemike.co.uk/"
+    },
+    {
+      "name": "Mark Wylde",
+      "email": "me@markwylde.com",
+      "url": "https://github.com/markwylde"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/votemike/react-accordion/issues"
