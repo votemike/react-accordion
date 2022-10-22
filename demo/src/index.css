@@ -27,7 +27,9 @@ li:first-child details > :first-child {
   border-top-right-radius: 5px;
 }
 
-li:last-child summary {
+li:last-child > summary,
+li:last-child :not(details[open]) summary,
+li:last-child details[open] > :not(:first-child) {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-width: 1px;
@@ -39,4 +41,24 @@ details > :not(:first-child) {
   border-color: var(--foreground-colour);
   border-style: solid;
   border-width: 1px 1px 0 1px;
+}
+
+.altArrows details {
+  position: relative;
+}
+
+.altArrows summary {
+  display: block; /* Instead of list-item. This removes the left-hand marker */
+  padding-right: 9px; /* To leave room for the new marker */
+}
+
+.altArrows summary::after {
+  content: '▼';
+  position: absolute;
+  right: 3px;
+  top: 6px;
+}
+
+.altArrows details[open] summary::after {
+  content: '▲';
 }
