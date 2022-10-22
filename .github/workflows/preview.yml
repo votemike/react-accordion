@@ -42,4 +42,5 @@ jobs:
     steps:
       - name: Run pa11y
         run: |
+          npx wait-on https://votemike.github.io/react-accordion/pull-requests/${{ github.event.pull_request.number }}
           npm run pa11y-ci https://votemike.github.io/react-accordion/pull-requests/${{ github.event.pull_request.number }}
