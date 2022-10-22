@@ -10,7 +10,7 @@ const data = [
   },
   {
     name: 'A Table',
-    heading: 'A Table',
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed odio ut urna placerat tincidunt. Suspendisse vestibulum vulputate urna et egestas. Donec libero nulla, congue in purus sed, efficitur condimentum est. Duis lobortis magna lectus, ac rhoncus felis tempor ut. Nullam molestie feugiat est at dapibus.',
     child: <table><tbody><tr><td>Hello</td></tr></tbody></table>,
     open: true
   },
@@ -25,6 +25,20 @@ const data = [
   }
 ];
 
+const altData = [
+  {
+    name: 'Privacy',
+    heading: <span>Heading must be nested in an element.</span>,
+    child: <div>Privacy is <a href="https://apple.com/privacy">very</a> important to Apple.</div>
+  },
+  {
+    name: 'A Table',
+    heading: <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed odio ut urna placerat tincidunt. Suspendisse vestibulum vulputate urna et egestas. Donec libero nulla, congue in purus sed, efficitur condimentum est. Duis lobortis magna lectus, ac rhoncus felis tempor ut. Nullam molestie feugiat est at dapibus.</span>,
+    child: <table><tbody><tr><td>Hello</td></tr></tbody></table>,
+    open: true
+  },
+];
+
 const DemoPage = () => {
   return (
     <>
@@ -33,6 +47,8 @@ const DemoPage = () => {
       <ReactAccordion items={data} />
       <h2>Accordion with zero or one expanded items at a time</h2>
       <SingleItemOpenAccordion items={data} />
+      <h2>Accordion with alternate arrows</h2>
+      <ReactAccordion items={altData} className="altArrows"/>
     </>
   )
 }

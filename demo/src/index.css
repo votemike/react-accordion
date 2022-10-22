@@ -42,3 +42,23 @@ details > :not(:first-child) {
   border-style: solid;
   border-width: 1px 1px 0 1px;
 }
+
+.altArrows details {
+  position: relative;
+}
+
+.altArrows summary {
+  display: block; /* Instead of list-item. This removes the left-hand marker */
+  padding-right: 9px; /* To leave room for the new marker */
+}
+
+.altArrows summary::after {
+  content: '▼';
+  position: absolute;
+  right: 3px;
+  top: 6px;
+}
+
+.altArrows details[open] summary::after {
+  content: '▲';
+}

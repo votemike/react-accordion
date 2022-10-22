@@ -10,14 +10,16 @@ interface Item {
 interface ReactAccordionProps {
   items: Item[]
   // eslint-disable-next-line react/require-default-props
-  onClick?: (event: SyntheticEvent, index: number) => void
+  onClick?: (event: SyntheticEvent, index: number) => void,
+  // eslint-disable-next-line react/require-default-props
+  className?: string,
 }
 
 export function ReactAccordion(props: ReactAccordionProps) {
-  const { items, onClick } = props;
+  const { className, items, onClick } = props;
 
   return (
-    <ul>
+    <ul className={className}>
       {items.map((item, index) => (
         <li key={item.name}>
           {item.child
