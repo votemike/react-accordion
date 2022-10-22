@@ -34,3 +34,12 @@ jobs:
           message: |
             👋 Preview deployed to:
             https://votemike.github.io/react-accordion/pull-requests/${{ github.event.pull_request.number }}
+
+  pa11y:
+    needs: deploy-preview
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run pa11y
+        run: |
+          npm run pa11y-ci https://votemike.github.io/react-accordion/pull-requests/${{ github.event.pull_request.number }}
