@@ -12,10 +12,14 @@
       "require": "./dist/cjs/index.js"
     }
   },
+  "files": [
+    "./dist/*"
+  ],
   "scripts": {
     "develop": "tsc -w --project tsconfig-cjs.json & tsc -w --project tsconfig.json",
     "build": "tsc --project tsconfig-cjs.json & tsc --project tsconfig.json",
     "lint": "eslint src/*.tsx",
+    "prepare": "npm run lint && npm run test && npm run build",
     "test": "jest"
   },
   "repository": {
