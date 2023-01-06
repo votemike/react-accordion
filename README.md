@@ -1,14 +1,11 @@
 # React Accordion
 A really lightweight, accessible, semantic, super simple accordion for React
 
-## TODO
-Put some badges including maybe NPM bundle size
-
 ## Installation
-TODO
+Run `npm install react-accordion`.
 
 ## Requirements
-Support React 17 and upwards
+Support React 18.2.0 and upwards
 
 ## How to use
 The ReactAccordion takes an array of items and optionally an onClick function.  
